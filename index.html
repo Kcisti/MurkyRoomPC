@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+      <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+       <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" href="style.css"/>
+    </head>
+  <body id="body">
+    <div id="log">
+      <div class="loghead">
+        <p class="loghead_title"id="loghead_title">murky room</p>
+      </div>
+      <center><div class="login">
+        <input class="login_input"id="login_input"placeholder="Username"type="text"autocomplete="off"
+        onkeydown="if (event.keyCode == 13) {connect(connect)}"/>
+      </div></center>
+      <div class="logfooter">
+        <p class="logfooter_p">About ID of </p>
+        <p class="logfooter_p"style="color: var(--colorSecond);margin-left:5px;">Creator</p>
+        <p class="logfooter_p">:</p>
+        <center><div class="logfooter_socials">
+          <a href="https://twitter.com/kcisti"><ion-icon name="logo-twitter"class="logfooter_socials_icons"></ion-icon></a>
+          <a href="https://www.instagram.com/kcisti/"><ion-icon name="logo-instagram"class="logfooter_socials_icons"></ion-icon></a>
+          <a href="https://github.com/Kcisti"><ion-icon name="logo-github"class="logfooter_socials_icons"></ion-icon></a>
+        </div></center>
+      </div>
+    </div>
+    <center><div id="room">
+      <div class="members-count" id="members_count">-</div>
+      <div class="container">
+        <div class="messages" id="messages"></div>
+      </div>
+      <form class="message-form" id="message_form"onsubmit="return false;">
+        <input class="message-form__input" id="message_form_input" placeholder="Type a message.."
+         autocomplete="off" type="text"/>
+      </form>
+    </div></center>
+  </body>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="script.js"></script>
+</html>
