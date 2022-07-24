@@ -1,4 +1,6 @@
 document.getElementById('room').style.display='none';
+document.querySelector('.containerCube').style.display='none';
+document.querySelector('.containerCube2').style.display='none';
 
 const DOM = {
   membersCount: document.querySelector('.members-count'),
@@ -12,9 +14,11 @@ DOM.input.style.display='none';
 function connect(connect){
   document.getElementById('log').style.display='none';
   document.getElementById('room').style.display='block';
+  document.querySelector('.containerCube').style.display='block';
+  document.querySelector('.containerCube2').style.display='block';
   DOM.input.style.display='block';
   const membrana = document.getElementById('login_input').value;
-  console.log(membrana + 'has joined');
+  console.log(membrana + ' has joined');
 
   const CLIENT_ID = 'EFslC1FFGukiWwqQ';
   const drone = new ScaleDrone(CLIENT_ID, {
@@ -44,13 +48,15 @@ function connect(connect){
 
     room.on('member_join', member => {
       members.push(member);
-      updateMembersDOM();
+      updateMembersDOM(member);
+      memberJoined();
     });
 
     room.on('member_leave', ({id}) => {
       const index = members.findIndex(member => member.id === id);
       members.splice(index, 1);
       updateMembersDOM();
+      memberLeft();
     });
 
     room.on('data', (text, member) => {
@@ -116,9 +122,17 @@ function connect(connect){
     return el;
   }
 
-  function updateMembersDOM() {
+  function updateMembersDOM(member) {
     DOM.membersCount.innerText = `${members.length} users in room`;
   }
-
-
+  function memberJoined(){
+    jQuery('.messages').append(
+      jQuery('<p class="memberJoined">user has joined</p>')
+    );
+  }
+  function memberLeft(){
+    jQuery('.messages').append(
+      jQuery('<p class="memberLeft">user has left</p>')
+    );
+  }
 }
